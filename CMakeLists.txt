@@ -382,6 +382,11 @@ endif()
 #this is the product (a library)
 add_library(aziotsharedutil ${source_c_files} ${source_h_files})
 
+#set(CMAKE_CXX_STANDARD 11)
+
+# Hach - Ignore strict warning configuration imposed by top level toolchain file.
+target_compile_options(aziotsharedutil PRIVATE -Wno-all -Wno-pointer-arith)
+# Hach
 
 target_include_directories(aziotsharedutil PUBLIC ${SHARED_UTIL_INC_FOLDER})
 if(MSVC)
